@@ -1,0 +1,246 @@
+:root {
+  --color-blue: #299fd3;
+  --color-dark-gray: #3F4142;
+  --color-gray: #56585A;
+  --color-light-gray: #EEEEEF;
+
+  --font-titles: 'Raleway', sans-serif;
+  --font-default: 'Lato', sans-serif;
+}
+
+body {
+  font-family: var(--font-default);
+  color: var(--color-dark-gray);
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-titles);
+}
+
+figure {
+  margin: 0;
+}
+
+input {
+  outline: 0;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+}
+
+.wrap-center {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+.header {
+  background-color: var(--color-blue);
+  padding: 1rem 0.5rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.header .header__title {
+  color: white;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.search {
+  display:flex;
+}
+
+.search .search__input {
+  width: 100%;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--color-gray);
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.search .search__button {
+  flex-basis: 150px;
+  padding: 0.2rem;
+  background-color: var(--color-gray);
+  color: white;
+  height: 40px;
+  cursor: pointer;
+}
+
+@media all and (min-width: 1024px) {
+  .search {
+    margin: 0.5rem auto;
+    max-width: 650px;
+  }
+
+  .search .search__input {
+    border-left: 1px solid var(--color-gray);
+    border-top: 1px solid var(--color-gray);
+  }
+}
+
+.citiesList {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.citiesList .city {
+  border-radius: 0 0 5px 5px;
+  background-color: var(--color-light-gray);
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  margin: 1rem;
+  width: 90%;
+}
+
+.citiesList .city:first-child {
+  border-radius: 0;
+  box-shadow: none;
+  flex-basis: 100%;
+  margin: 1rem 0;
+}
+
+.citiesList .city:first-child .city__header{
+  border-radius: 0;
+}
+
+@media all and (min-width: 768px){
+  .citiesList .city {
+    width: 48%;
+    margin: 1rem 1%;
+ }
+
+  .citiesList .city:first-child {
+    flex-basis: 90%;
+    margin: 1rem auto;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    border-radius: 0 0 5px 5px;
+  } 
+
+  .citiesList .city:first-child .city__header {
+    border-radius: 5px 5px 0 0;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .citiesList .city {
+    width: 31%;
+  }
+}
+
+.city__header{
+  background-color: var(--color-blue);
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+}
+
+.city__header .city__zone {
+  margin: 0 0 0.5rem;
+}
+
+.city__header .city__zone,
+.city__header .city__country {
+  color: white;
+}
+
+.city__temperature {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.city__degreesList .city__degrees-current {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.city__degreesList .city__degrees-current:after {
+  content: " °C";
+}
+
+.city__degreesList .city__degrees-min,
+.city__degreesList .city__degrees-max {
+  background-color: var(--color-gray);
+  color: white;
+  font-weight: 300;
+  padding: 0.3rem 0.5rem;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 0.3rem;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+.city__degreesList .city__degrees-min:after {
+  content: " °C MIN";
+}
+
+.city__degreesList .city__degrees-max:after {
+  content: " °C MAX";
+}
+
+.city__image .city__img {
+  width: 150px;
+}
+
+.city__image .city__state .city__text {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.loader-wrap {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  display: inline-block; 
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  position: relative;
+}
+
+.loader:before,
+.loader:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  top: 0;
+  left: 0;
+  animation: 1s turn linear infinite;
+}
+
+.loader:before {
+  width: 80px;
+  height: 80px;
+  border-bottom-color: var(--color-blue);
+}
+
+.loader:after {
+  width: 80px;
+  height: 80px;
+  animation-direction: reverse;
+  border-bottom-color: var(--color-dark-gray);
+}
+
+@keyframes turn {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
